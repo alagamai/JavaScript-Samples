@@ -1,0 +1,12 @@
+<html>
+	<body style="background-color: rgb(0, 255, 128)">
+		<h1>My First test case</h1>
+		<h2 id="myDiv"></h2>
+		<script>
+			function myFunc(message) {
+				document.getElementById('myDiv').innerHTML = message;
+			}
+			setTimeout(myFunc, 5000, 'I am appearing after 5s due to callback delay');
+		</script>
+	</body>
+</html>

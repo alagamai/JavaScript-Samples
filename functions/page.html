@@ -1,0 +1,20 @@
+<html>
+	<body style="background-color: rgb(0, 255, 55)">
+		<h1>This is my first html page</h1>
+		<script>
+			alert('Hello world!');
+			const xhr = new XMLHttpRequest();
+			xhr.open('GET', 'https://restcountries.com/v3.1/name/spain');
+			xhr.send();
+			xhr.onload = function () {
+				if (xhr.status === 200) {
+					const data = JSON.parse(xhr.responseText);
+					console.log(data);
+					// Your code here
+				} else {
+					console.log('Request failed. Returned status of ' + xhr.status);
+				}
+			};
+		</script>
+	</body>
+</html>

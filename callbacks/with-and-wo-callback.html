@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<h1 style="background-color: cornflowerblue">This is without callback</h1>
+		<h2 id="myDiv"></h2>
+		<script>
+			function display(answer) {
+				document.getElementById('myDiv').innerHTML = answer;
+			}
+			function sum(a, b) {
+				let res = a + b;
+			}
+
+			function sumWithCb(a, b, display) {
+				let res = a + b;
+				display(res);
+			}
+
+			// let ans = sum(10, 20);
+			// display(ans);
+
+			let ans = sumWithCb(10, 20, display);
+		</script>
+		<title>title</title>
+	</head>
+	<body></body>
+</html>

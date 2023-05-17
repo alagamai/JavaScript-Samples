@@ -1,0 +1,14 @@
+<html>
+	<body style="background-color: rgb(0, 255, 128)">
+		<h1>My First test case</h1>
+		<h2 id="myDiv"></h2>
+		<script>
+			function myFunc() {
+				let d = new Date();
+				document.getElementById('myDiv').innerHTML =
+					d.getHours() + ' ' + d.getMinutes() + ' ' + d.getSeconds();
+			}
+			setInterval(myFunc, 1000);
+		</script>
+	</body>
+</html>

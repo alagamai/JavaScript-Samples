@@ -1,0 +1,49 @@
+<html>
+	<body style="background-color: rgb(0, 255, 55)">
+		<h1>This is my first html page</h1>
+		<script>
+			const xhr = new XMLHttpRequest();
+
+			xhr.open('GET', 'https://restcountries.com/v3.1/name/germany');
+			xhr.send();
+			xhr.onload = function () {
+				if (xhr.status === 200) {
+					const data = JSON.parse(xhr.responseText);
+					console.log(data);
+					let code = data[0].borders[0];
+					console.log(code);
+					const xhr1 = new XMLHttpRequest();
+					xhr1.open('GET', `https://restcountries.com/v3.1/alpha/${code}`);
+					xhr1.send();
+					xhr1.onload = function () {
+						if (xhr1.status === 200) {
+							const data1 = JSON.parse(xhr1.responseText);
+							console.log(data1);
+							let code1 = data1[0].borders[0];
+							const xhr2 = new XMLHttpRequest();
+							xhr2.open('GET', `https://restcountries.com/v3.1/alpha/${code1}`);
+							xhr2.send();
+							xhr2.onload = function () {
+								if (xhr2.status === 200) {
+									const data2 = JSON.parse(xhr2.responseText);
+									console.log(data2);
+								} else {
+									console.log(
+										'Request failed. Returned status of ' + xhr1.status
+									);
+								}
+							};
+						} else {
+							console.log('Request failed. Returned status of ' + xhr1.status);
+						}
+					};
+				} else {
+					console.log('Request failed. Returned status of ' + xhr.status);
+				}
+			};
+
+			//let req = fetch('https://restcountries.com/v3.1/name/germany');
+			//console.log(req);
+		</script>
+	</body>
+</html>
